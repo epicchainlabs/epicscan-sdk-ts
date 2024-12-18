@@ -1,0 +1,66 @@
+version: 2.1
+
+defaults: &defaults
+  working_directory: ~/dora-sdk-ts
+  docker:
+    - image: cimg/node:18.17.0
+
+jobs:
+  test:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+      - run:
+          name: install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: build
+          command: npm run build
+      - run:
+          name: test
+          command: npm run test
+
+      - persist_to_workspace:
+          root: ~/dora-sdk-ts
+          paths: .
+
+  deploy:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/dora-sdk-ts
+      - run:
+          name: Authenticate
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/dora-sdk-ts/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
+
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              only: /.*/
+      - deploy:
+          context: npm_prod
+          requires:
+            - test
+          filters:
+            tags:
+              only:
+                - /^v.*/
+            branches:
+              ignore:
+                - /.*/

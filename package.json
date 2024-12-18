@@ -1,0 +1,54 @@
+{
+  "name": "@epicchain/epicscan-sdk-ts",
+  "version": "1.0.0",
+  "description": "A TypeScript SDK for interacting with the EpicChain blockchain data aggregator, developed by EpicChain.",
+  "license": "Apache-2.0",
+  "main": "dist/index",
+  "types": "dist/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epicchainlabs/epicscan-sdk-ts"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "scripts": {
+    "prepare": "husky install",
+    "prebuild": "rimraf dist",
+    "build": "tsc",
+    "test": "mocha 'src/**/*.test.ts'",
+    "fmt": "prettier --write ./src/**/*.ts",
+    "precommit": "lint-staged",
+    "docs": "typedoc --out docs/",
+    "publishDocs": "aws sy sync ./docs s3://neoscan/prod/documentation --acl public-read "
+  },
+  "dependencies": {
+    "axios": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "chai": "^4.3.7",
+    "eslint": "^8.44.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.3",
+    "mocha": "^10.2.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.6"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+}
