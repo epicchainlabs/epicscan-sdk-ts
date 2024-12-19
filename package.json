@@ -1,6 +1,6 @@
 {
   "name": "@epicchain/epicscan-sdk-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A TypeScript SDK for interacting with the EpicChain blockchain data aggregator, developed by EpicChain.",
   "license": "Apache-2.0",
   "main": "dist/index",
@@ -24,7 +24,8 @@
     "publishDocs": "aws sy sync ./docs s3://neoscan/prod/documentation --acl public-read "
   },
   "dependencies": {
-    "axios": "^1.4.0"
+    "axios": "^1.4.0",
+    "build": "^0.1.4"
   },
   "devDependencies": {
     "@types/chai": "^4.3.5",

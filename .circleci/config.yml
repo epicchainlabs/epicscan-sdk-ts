@@ -1,7 +1,7 @@
 version: 2.1
 
 defaults: &defaults
-  working_directory: ~/dora-sdk-ts
+  working_directory: ~/epicscan-sdk-ts
   docker:
     - image: cimg/node:18.17.0
 
@@ -27,17 +27,17 @@ jobs:
           command: npm run test
 
       - persist_to_workspace:
-          root: ~/dora-sdk-ts
+          root: ~/epicscan-sdk-ts
           paths: .
 
   deploy:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: ~/dora-sdk-ts
+          at: ~/epicscan-sdk-ts
       - run:
           name: Authenticate
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/dora-sdk-ts/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/epicscan-sdk-ts/.npmrc
       - run:
           name: Publish package
           command: npm publish

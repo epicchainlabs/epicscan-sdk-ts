@@ -97,7 +97,7 @@ export type InvocationStatsResponse = ContractInvocationStats[]
 
 export interface LogResponse {
   exception?: unknown
-  gas_consumed: string
+  epicpulse_consumed: string
   notifications: Notification[]
   stack: TypedResponse[]
   time: string
@@ -107,7 +107,6 @@ export interface LogResponse {
 }
 
 export type TokenProvenanceResponse = Provenance[]
-
 
 export type TransactionResponse = Transaction
 

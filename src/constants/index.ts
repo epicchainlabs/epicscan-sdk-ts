@@ -1,1 +1,1 @@
-export const DORA_URL = 'https://dora.coz.io'
+export const EPICSCAN_URL = 'https://epicscan.org'

@@ -18,18 +18,18 @@ import type {
   TransactionsResponse,
   TransferHistoryResponse,
   VoterResponse
-} from '../../interfaces/api/neo'
+} from '../../interfaces/api/epicchain'
 import type { RestConfig } from '../../interfaces'
-import { DORA_URL } from '../../constants'
+import { EPICSCAN_URL } from '../../constants'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 
 const DefaultRestConfig: RestConfig = {
-  doraUrl: DORA_URL,
-  endpoint: '/api/v2/neo3'
+  doraUrl: EPICSCAN_URL,
+  endpoint: '/api/v2/epicchain'
 }
 
-export class NeoRESTApi {
+export class EpicChainRESTApi {
   protected axios: AxiosInstance
   public constructor(
     restConfig: RestConfig = DefaultRestConfig,
@@ -74,15 +74,14 @@ export class NeoRESTApi {
     return await this.get(network, method, page)
   }
 
-
   /**
    * Gets the balance of an address. Balances are considerate of the balances properties of the tokens.
-   * @param address The requested address. This field should begin with 'N' for Neo N3.
+   * @param address The requested address. This field should begin with 'N' for EpicChain.
    * @param network The target network ('mainnet', 'testnet')
    *
    * @example
    * //Get the balance of a testnet address
-   * const res = await NeoN3REST.balance(
+   * const res = await EpicChainREST.balance(
    *   'Nb9QYTVx8F6j5kKi1k1ERaUTFfSX5JRq2D',
    *   'testnet'
    * )
@@ -90,15 +89,15 @@ export class NeoRESTApi {
    * ->
    * [
    *   {
-   *     asset: '0xd2a4cff31913016155e38e474a2c06d08be276cf',
-   *     asset_name: 'GasToken',
-   *     symbol: 'GAS',
+   *     asset: '0xbc8459660544656355b4f60861c22f544341e828',
+   *     asset_name: 'EpicPulse',
+   *     symbol: 'XPP',
    *     balance: 20000
    *   },
    *   {
-   *     asset: '0xef4073a0f2b305a38ec4050e4d3d28bc40ea63f5',
-   *     asset_name: 'NeoToken',
-   *     symbol: 'NEO',
+   *     asset: '0x6dc3bff7b2e6061f3cad5744edf307c14823328e',
+   *     asset_name: 'EpicChain',
+   *     symbol: 'XPR',
    *     balance: 10000
    *   }
    * ]
@@ -175,9 +174,9 @@ export class NeoRESTApi {
   }
 
   async tokenProvenance(
-      contract: string,
-      tokenId : string,
-      network = 'mainnet'
+    contract: string,
+    tokenId: string,
+    network = 'mainnet'
   ): Promise<TokenProvenanceResponse> {
     const method = 'token_provenance'
     return await this.get(network, method, contract, tokenId)
@@ -220,4 +219,4 @@ export class NeoRESTApi {
   }
 }
 
-export const NeoN3REST = new NeoRESTApi()
+export const EpicChainREST = new EpicChainRESTApi()
