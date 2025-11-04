@@ -7,7 +7,7 @@
 <p align="center">
   <a href="https://epic-chain.org"><img src="https://img.shields.io/badge/EpicScan-Blockchain-blue"></a>
   <a href="https://github.com/EpicChainLabs/epicscan-sdk-ts/actions"><img src="https://github.com/EpicChainLabs/epicscan-sdk-ts/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a>
-  <a href="https://www.npmjs.com/package/@epicchain/epicscan-sdk-ts"><img src="https://img.shields.io/npm/v/@epicchain/epicscan-sdk-ts" alt="NPM Version"></a>
+  <a href="https://www.npmjs.com/package/@epicchain/epicscan-sdk-ts"><img src="https://img.shields.io/npm/v/@epicchain/epicscan-sdk-ts" alt="Ppnpm Version"></a>
   <a href="https://github.com/epicchainlabs/epicscan-sdk-ts"><img src="https://img.shields.io/github/license/EpicChainLabs/epicscan-sdk-ts" alt="License"></a>
 </p>
 
@@ -30,24 +30,13 @@
 - **Security**: Built with industry-standard security practices to ensure the safe transmission and storage of blockchain data. EpicScan also offers robust support for encrypted API keys and data security protocols.
 - **Customizable**: Whether you’re building a basic application or an enterprise-grade solution, EpicScan’s adaptable design allows you to easily customize its functionalities to fit your needs.
 
-## Table of Contents
-
-1. [Installation](#installation)
-2. [Quickstart](#quickstart)
-3. [Examples](#examples)
-4. [API Documentation](#api-documentation)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Changelog](#changelog)
-8. [Support](#support)
-
 ## Installation
 
-Getting started with EpicScan is simple! Choose your preferred package manager, npm or yarn, to install the SDK:
+Getting started with EpicScan is simple! Choose your preferred package manager, pnpm or yarn, to install the SDK:
 
 ```bash
 # Install via npm
-npm install @epicchain/epicscan-sdk-ts
+pnpm install @epicchain/epicscan-sdk-ts
 
 # Or install via yarn
 yarn add @epicchain/epicscan-sdk-ts
@@ -63,17 +52,17 @@ Follow these steps to set up EpicScan quickly:
 
 1. **Install dependencies:**
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Build the SDK:**
    ```bash
-   npm run build
+   pnpm run build
    ```
 
 3. **Run tests:**
    ```bash
-   npm run test
+   pnpm run test
    ```
 
 4. **Configure your project**: Make sure to set up your configuration files to connect to the EpicChain blockchain API securely.
