@@ -37,8 +37,8 @@ export interface Event {
 }
 
 export enum InvocationType {
-  NEP17_TRANSFER = 'nep17_transfer',
-  NEP11_TRANSFER = 'nep11_transfer',
+  XEP17_TRANSFER = 'xep17_transfer',
+  XEP11_TRANSFER = 'xep11_transfer',
   CONTRACT_INVOCATION = 'contract_invocation',
   VOTE = 'vote'
 }
@@ -46,8 +46,8 @@ export enum InvocationType {
 export interface InvocationDetails {
   type: InvocationType
   metadata:
-    | InvocationDetailNEP17Transfer
-    | InvocationDetailNEP11Transfer
+    | InvocationDetailXEP17Transfer
+    | InvocationDetailXEP11Transfer
     | InvocationDetailContractInvocation
     | InvocationDetailVote
 }
@@ -59,7 +59,7 @@ export interface InvocationDetailContractInvocation {
   method: string
 }
 
-export interface InvocationDetailNEP11Transfer {
+export interface InvocationDetailXEP11Transfer {
   summary: string
   symbol: string
   contract_name: string
@@ -69,7 +69,7 @@ export interface InvocationDetailNEP11Transfer {
   data: string
 }
 
-export interface InvocationDetailNEP17Transfer {
+export interface InvocationDetailXEP17Transfer {
   summary: string
   symbol: string
   contract_name: string
